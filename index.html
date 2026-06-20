@@ -688,6 +688,9 @@
   <div class="bg-img" id="bg5"></div>
 </div>
 
+<!-- TEMP DEBUG LABEL - shows which background is currently active -->
+<div id="bg-debug-label" style="position:fixed;top:80px;right:16px;z-index:9999;background:#000;color:#0f0;font-family:monospace;font-size:14px;padding:8px 14px;border:2px solid #0f0;border-radius:4px;">Active: bg5</div>
+
 <!-- ===== NAVIGATION ===== -->
 <nav>
   <div class="nav-inner">
@@ -1239,6 +1242,8 @@
             overwrite: true
           });
         });
+        var debugLabel = document.getElementById('bg-debug-label');
+        if (debugLabel) debugLabel.textContent = 'Active: ' + activeId;
       }
 
       var bgSequence = [
