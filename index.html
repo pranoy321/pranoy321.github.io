@@ -688,8 +688,6 @@
   <div class="bg-img" id="bg5"></div>
 </div>
 
-<!-- TEMP DEBUG LABEL - shows which background is currently active -->
-<div id="bg-debug-label" style="position:fixed;top:80px;right:16px;z-index:9999;background:#000;color:#0f0;font-family:monospace;font-size:14px;padding:8px 14px;border:2px solid #0f0;border-radius:4px;">Active: bg5</div>
 
 <!-- ===== NAVIGATION ===== -->
 <nav>
@@ -1106,6 +1104,54 @@
 
     if (reduceMotion){
       gsap.set('.fade-in', { opacity: 1, y: 0 });
+
+      /* Show final stat values immediately, no animation */
+      gsap.utils.toArray('.stat-number').forEach(function(el){
+        var raw = el.getAttribute('data-count');
+        var suffix = el.getAttribute('data-suffix') || '';
+        var isDecimal = raw.indexOf('.') !== -1;
+        var target = parseFloat(raw);
+        el.textContent = (isDecimal ? target.toFixed(2) : Math.round(target)) + suffix;
+      });
+
+      /* Switch backgrounds instantly per section (no crossfade animation),
+         using IntersectionObserver since ScrollTrigger animations are
+         skipped under reduced motion. */
+      var allBgIdsRM = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5'];
+      var bgElsRM = {};
+      allBgIdsRM.forEach(function(id){ bgElsRM[id] = document.getElementById(id); });
+
+      function showBgInstant(activeId){
+        allBgIdsRM.forEach(function(id){
+          bgElsRM[id].style.opacity = (id === activeId) ? 1 : 0;
+        });
+      }
+
+      var bgMapRM = {
+        'about': 'bg2',
+        'experience': 'bg1',
+        'projects': 'bg3',
+        'skills': 'bg4',
+        'education': 'bg5',
+        'leadership': 'bg5',
+        'contact': 'bg2'
+      };
+
+      if ('IntersectionObserver' in window){
+        var rmObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting){
+              var bgId = bgMapRM[entry.target.id];
+              if (bgId) showBgInstant(bgId);
+            }
+          });
+        }, { threshold: 0.4 });
+
+        Object.keys(bgMapRM).forEach(function(sectionId){
+          var sectionEl = document.getElementById(sectionId);
+          if (sectionEl) rmObserver.observe(sectionEl);
+        });
+      }
     } else {
 
       /* Hero entrance */
@@ -1242,8 +1288,6 @@
             overwrite: true
           });
         });
-        var debugLabel = document.getElementById('bg-debug-label');
-        if (debugLabel) debugLabel.textContent = 'Active: ' + activeId;
       }
 
       var bgSequence = [
