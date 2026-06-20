@@ -57,7 +57,7 @@
     background-size:cover;
     background-position:center;
     opacity:0;
-    filter:brightness(1.3) contrast(1.12) saturate(1.05);
+    filter:grayscale(1) sepia(1) hue-rotate(8deg) saturate(2.2) brightness(1.15) contrast(1.1);
     will-change:opacity, transform;
   }
   .bg-img::after{
@@ -1009,7 +1009,10 @@
 <script>
 (function(){
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Site always uses full smooth animations regardless of the OS-level
+     prefers-reduced-motion setting, per explicit request, so the
+     experience is consistent across all devices/visitors. */
+  var reduceMotion = false;
 
   /* ===== MOBILE NAV ===== */
   var hamburger = document.getElementById('hamburger');
