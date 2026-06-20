@@ -57,7 +57,7 @@
     background-size:cover;
     background-position:center;
     opacity:0;
-    filter:brightness(1.35) contrast(1.15) saturate(1.2);
+    filter:brightness(1.3) contrast(1.12) saturate(1.05);
     will-change:opacity, transform;
   }
   .bg-img::after{
@@ -1220,31 +1220,42 @@
         }
       });
 
-      /* ===== BACKGROUND CROSSFADE SYSTEM ===== */
+      /* ===== BACKGROUND CROSSFADE SYSTEM =====
+         Each section explicitly sets ALL 5 background layers to their
+         correct opacity (1 for the active one, 0 for the rest), rather
+         than only fading a "from" and "to" pair. This prevents images
+         from stacking/getting stuck visible when a person scrolls fast
+         past multiple section triggers in quick succession. */
+      var allBgIds = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5'];
+      var bgEls = {};
+      allBgIds.forEach(function(id){ bgEls[id] = document.getElementById(id); });
+
+      function showBg(activeId){
+        allBgIds.forEach(function(id){
+          gsap.to(bgEls[id], {
+            opacity: (id === activeId) ? 1 : 0,
+            duration: 1.2,
+            ease: 'power1.inOut',
+            overwrite: true
+          });
+        });
+      }
+
       var bgSequence = [
-        { trigger: '#about',      from: 'bg5', to: 'bg2' },
-        { trigger: '#experience', from: 'bg2', to: 'bg1' },
-        { trigger: '#projects',   from: 'bg1', to: 'bg3' },
-        { trigger: '#skills',     from: 'bg3', to: 'bg4' },
-        { trigger: '#education',  from: 'bg4', to: 'bg5' },
-        { trigger: '#contact',    from: 'bg5', to: 'bg2' }
+        { trigger: '#about',      enter: 'bg2', leaveBack: 'bg5' },
+        { trigger: '#experience', enter: 'bg1', leaveBack: 'bg2' },
+        { trigger: '#projects',   enter: 'bg3', leaveBack: 'bg1' },
+        { trigger: '#skills',     enter: 'bg4', leaveBack: 'bg3' },
+        { trigger: '#education',  enter: 'bg5', leaveBack: 'bg4' },
+        { trigger: '#contact',    enter: 'bg2', leaveBack: 'bg5' }
       ];
 
       bgSequence.forEach(function(item){
-        var fromEl = document.getElementById(item.from);
-        var toEl = document.getElementById(item.to);
-
         ScrollTrigger.create({
           trigger: item.trigger,
           start: 'top 60%',
-          onEnter: function(){
-            gsap.to(fromEl, { opacity: 0, duration: 1.2, ease: 'power1.inOut' });
-            gsap.to(toEl, { opacity: 1, duration: 1.2, ease: 'power1.inOut' });
-          },
-          onLeaveBack: function(){
-            gsap.to(toEl, { opacity: 0, duration: 1.2, ease: 'power1.inOut' });
-            gsap.to(fromEl, { opacity: 1, duration: 1.2, ease: 'power1.inOut' });
-          }
+          onEnter: function(){ showBg(item.enter); },
+          onLeaveBack: function(){ showBg(item.leaveBack); }
         });
       });
 
