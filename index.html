@@ -658,6 +658,17 @@
     .timeline{padding-left:28px;}
     .timeline-dot{left:-28px;}
     .timeline-card{padding:26px 22px;}
+
+    /* Center body text and card content on mobile only */
+    .bio-card{text-align:center;}
+    .edu-entry{text-align:center;}
+    .timeline-card{text-align:center;}
+    .timeline-bullets{display:inline-block;text-align:left;}
+    .skill-group{text-align:center;}
+    .skill-group-title{justify-content:center;}
+    .skill-tags{justify-content:center;}
+    .project-card{text-align:center;}
+    .tag-row{justify-content:center;}
   }
 
   @media (max-width: 480px){
@@ -1294,7 +1305,7 @@
       }
 
       var bgSequence = [
-        { trigger: '#about',      enter: 'bg2', leaveBack: 'bg5' },
+        { trigger: '#about',      enter: 'bg2', leaveBack: null },
         { trigger: '#experience', enter: 'bg1', leaveBack: 'bg2' },
         { trigger: '#projects',   enter: 'bg3', leaveBack: 'bg1' },
         { trigger: '#skills',     enter: 'bg4', leaveBack: 'bg3' },
