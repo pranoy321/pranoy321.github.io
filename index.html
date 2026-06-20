@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranoy P Jyothiraj | Mechanical Engineer | Chennai</title>
+<meta name="description" content="Portfolio of Pranoy P Jyothiraj, Mechanical Engineering Graduate with hands-on automotive QA experience. Based in Chennai. Open to engineering roles at MNCs.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230D1B3E'/%3E%3Ctext x='32' y='44' font-family='Georgia, serif' font-size='34' font-weight='700' fill='%23C9A84C' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0D1B3E;
+    --gold:#C9A84C;
+    --gold-light:#E8C76A;
+    --off-white:#F0EDE6;
+    --text-primary:#F0EDE6;
+    --text-muted:#8A9AB5;
+    --card-bg:rgba(10,15,40,0.75);
+    --card-border:rgba(201,168,76,0.3);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--navy);
+    color:var(--text-primary);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4,.sg{font-family:'Space Grotesk',sans-serif;}
+
+  a{color:inherit;text-decoration:none;}
+
+  ::selection{background:var(--gold);color:var(--navy);}
+
+  /* ===== BACKGROUND LAYER SYSTEM ===== */
+  .bg-layer-wrap{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:0;
+    overflow:hidden;
+  }
+  .bg-img{
+    position:absolute;
+    top:-8%;left:0;
+    width:100%;height:116%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    will-change:opacity, transform;
+  }
+  .bg-img::after{
+    content:'';
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;
+    background:rgba(10,15,35,0.72);
+  }
+  #bg1{background-image:url('images/bg1.png');}
+  #bg2{background-image:url('images/bg2.png');}
+  #bg3{background-image:url('images/bg3.png');}
+  #bg4{background-image:url('images/bg4.png');}
+  #bg5{background-image:url('images/bg5.png');opacity:1;}
+
+  /* ===== NAVIGATION ===== */
+  nav{
+    position:fixed;
+    top:0;left:0;width:100%;
+    z-index:100;
+    background:rgba(10,15,35,0.85);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(201,168,76,0.15);
+  }
+  .nav-inner{
+    max-width:1280px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 40px;
+  }
+  .nav-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .nav-diamond{
+    width:14px;height:14px;
+    border:2px solid var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+  .nav-brand-text{
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+  }
+  .nav-brand-sub{
+    color:var(--gold);
+    font-weight:500;
+    font-size:0.95rem;
+    margin-left:4px;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    list-style:none;
+  }
+  .nav-links a{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:500;
+    color:var(--text-primary);
+    position:relative;
+    padding-bottom:6px;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:0;
+    width:0;height:2px;
+    background:var(--gold);
+    transition:width 0.3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-resume-btn{
+    background:var(--gold);
+    color:var(--navy)!important;
+    padding:10px 22px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    transition:background 0.3s ease, transform 0.2s ease;
+  }
+  .nav-resume-btn:hover{
+    background:var(--gold-light);
+    transform:translateY(-1px);
+  }
+  .nav-resume-btn::after{display:none;}
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    padding:8px;
+  }
+  .hamburger span{
+    width:24px;height:2px;
+    background:var(--gold);
+    display:block;
+    transition:transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.active span:nth-child(2){opacity:0;}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(8,13,32,0.98);
+    backdrop-filter:blur(20px);
+    z-index:99;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+    transform:translateY(-100%);
+    transition:transform 0.4s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{
+    font-size:1.1rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:500;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .mobile-menu .nav-resume-btn{margin-top:12px;}
+
+  /* ===== LAYOUT / SECTIONS ===== */
+  section{
+    position:relative;
+    z-index:10;
+    background:transparent;
+    padding:140px 40px;
+    max-width:1280px;
+    margin:0 auto;
+  }
+  .section-eyebrow{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.8rem;
+    font-weight:600;
+    font-family:'Space Grotesk',sans-serif;
+    margin-bottom:18px;
+  }
+  .section-title{
+    font-size:clamp(2rem, 3.4vw, 2.8rem);
+    font-weight:700;
+    letter-spacing:0.02em;
+    padding-left:22px;
+    border-left:4px solid var(--gold);
+    margin-bottom:60px;
+  }
+
+  .fade-in{opacity:0;transform:translateY(30px);}
+
+  /* ===== HERO ===== */
+  #hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:140px 40px 80px;
+    position:relative;
+  }
+  #hero-canvas{
+    position:absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    z-index:5;
+    pointer-events:none;
+  }
+  .hero-content{
+    position:relative;
+    z-index:10;
+    max-width:900px;
+  }
+  .hero-eyebrow{
+    color:var(--gold);
+    font-family:'Space Grotesk',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-size:0.85rem;
+    font-weight:500;
+    margin-bottom:24px;
+  }
+  .hero-line{
+    width:60px;height:2px;
+    background:var(--gold);
+    margin-bottom:24px;
+    transform-origin:left;
+  }
+  .hero-name{
+    font-size:clamp(2.8rem, 6vw, 5.2rem);
+    font-weight:700;
+    color:var(--off-white);
+    letter-spacing:0.01em;
+    line-height:1.05;
+    margin-bottom:20px;
+  }
+  .hero-subtitle{
+    color:var(--gold);
+    font-size:clamp(1.05rem, 1.6vw, 1.3rem);
+    font-weight:500;
+    margin-bottom:22px;
+    letter-spacing:0.02em;
+  }
+  .hero-description{
+    color:var(--text-muted);
+    font-size:1.05rem;
+    max-width:560px;
+    margin-bottom:42px;
+    line-height:1.8;
+  }
+  .hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 32px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    border-radius:2px;
+    transition:all 0.3s ease;
+    cursor:pointer;
+    border:2px solid transparent;
+  }
+  .btn-fill{
+    background:var(--gold);
+    color:var(--navy);
+  }
+  .btn-fill:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+  }
+  .btn-outline{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+  .btn-outline:hover{
+    background:rgba(201,168,76,0.1);
+    transform:translateY(-2px);
+  }
+  .hero-annotation{
+    position:absolute;
+    bottom:40px;
+    right:40px;
+    text-align:right;
+    color:var(--text-muted);
+    font-family:'Space Grotesk',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    line-height:1.6;
+    z-index:10;
+  }
+
+  /* ===== CARDS (shared) ===== */
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:4px;
+    padding:32px;
+  }
+
+  /* ===== ABOUT ===== */
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    margin-bottom:56px;
+  }
+  .stat-card{
+    text-align:center;
+    padding:38px 20px;
+  }
+  .stat-number{
+    font-size:clamp(2.2rem, 3.5vw, 3rem);
+    font-weight:700;
+    color:var(--gold);
+    font-family:'Space Grotesk',sans-serif;
+    margin-bottom:10px;
+  }
+  .stat-label{
+    font-weight:600;
+    font-size:0.95rem;
+    margin-bottom:4px;
+  }
+  .stat-sub{
+    color:var(--text-muted);
+    font-size:0.82rem;
+  }
+  .bio-card{
+    max-width:760px;
+    margin:0 auto;
+    padding:44px;
+  }
+  .bio-card p{
+    color:var(--text-primary);
+    margin-bottom:20px;
+    font-size:1.02rem;
+  }
+  .bio-card p:last-child{margin-bottom:0;}
+
+  /* ===== EXPERIENCE ===== */
+  .timeline{
+    position:relative;
+    padding-left:36px;
+  }
+  .timeline::before{
+    content:'';
+    position:absolute;
+    left:5px;top:8px;bottom:8px;
+    width:2px;
+    background:linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.15));
+  }
+  .timeline-entry{
+    position:relative;
+    margin-bottom:44px;
+  }
+  .timeline-entry:last-child{margin-bottom:0;}
+  .timeline-dot{
+    position:absolute;
+    left:-36px;
+    top:10px;
+    width:12px;height:12px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 4px rgba(201,168,76,0.18);
+  }
+  .timeline-card{
+    background:rgba(10,15,40,0.8);
+    border-top:2px solid var(--gold);
+    border-radius:4px;
+    padding:32px 36px;
+  }
+  .timeline-header{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .timeline-role{
+    font-size:1.3rem;
+    font-weight:600;
+  }
+  .timeline-duration{
+    color:var(--gold);
+    font-family:'Space Grotesk',monospace;
+    font-size:0.85rem;
+    white-space:nowrap;
+  }
+  .timeline-company{
+    color:var(--gold);
+    font-weight:500;
+    margin-bottom:4px;
+    font-size:1.02rem;
+  }
+  .timeline-location{
+    color:var(--text-muted);
+    font-size:0.85rem;
+    margin-bottom:18px;
+  }
+  .timeline-bullets{
+    list-style:none;
+  }
+  .timeline-bullets li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:11px;
+    color:var(--text-primary);
+    font-size:0.97rem;
+  }
+  .timeline-bullets li::before{
+    content:'';
+    position:absolute;
+    left:0;top:7px;
+    width:7px;height:7px;
+    background:var(--gold);
+  }
+  .timeline-bullets li:last-child{margin-bottom:0;}
+
+  /* ===== PROJECTS ===== */
+  .projects-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .project-card{
+    background:rgba(10,15,40,0.82);
+    border-top:2px solid var(--gold);
+    border-radius:4px;
+    padding:34px;
+    display:flex;
+    flex-direction:column;
+  }
+  .project-card.full-width{
+    grid-column:1 / -1;
+  }
+  .project-title{
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .tag{
+    background:rgba(10,15,40,0.6);
+    border:1px solid var(--card-border);
+    color:var(--gold);
+    font-size:0.72rem;
+    font-weight:500;
+    padding:5px 12px;
+    border-radius:20px;
+    letter-spacing:0.02em;
+  }
+  .project-desc{
+    color:var(--text-muted);
+    font-size:0.95rem;
+    margin-bottom:22px;
+    flex-grow:1;
+  }
+  .project-link{
+    color:var(--gold);
+    font-weight:600;
+    font-size:0.88rem;
+    font-family:'Space Grotesk',sans-serif;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .project-link:hover{color:var(--gold-light);}
+  .project-tag-label{
+    color:var(--text-muted);
+    font-size:0.88rem;
+    font-style:italic;
+  }
+
+  /* ===== SKILLS ===== */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .skill-group{
+    padding:32px;
+  }
+  .skill-group-title{
+    color:var(--gold);
+    font-size:1.1rem;
+    font-weight:600;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .skill-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .skill-tag{
+    background:rgba(10,15,40,0.6);
+    border:1px solid var(--gold);
+    color:var(--gold);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:0.82rem;
+    font-weight:500;
+    padding:8px 16px;
+    border-radius:2px;
+  }
+
+  /* ===== EDUCATION ===== */
+  .edu-entry{
+    border-left:3px solid var(--gold);
+    padding:28px 36px;
+    margin-bottom:24px;
+  }
+  .edu-entry:last-child{margin-bottom:0;}
+  .edu-degree{
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .edu-institution{
+    color:var(--gold);
+    font-weight:500;
+    margin-bottom:4px;
+  }
+  .edu-meta{
+    color:var(--text-muted);
+    font-size:0.88rem;
+    margin-bottom:14px;
+  }
+  .edu-score{
+    font-family:'Space Grotesk',monospace;
+    color:var(--gold-light);
+    font-size:0.95rem;
+    margin-bottom:10px;
+  }
+  .edu-coursework{
+    color:var(--text-muted);
+    font-size:0.88rem;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-card{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto;
+    padding:60px 48px;
+  }
+  .contact-title{
+    color:var(--gold);
+    font-size:clamp(1.8rem, 3vw, 2.4rem);
+    font-weight:700;
+    margin-bottom:18px;
+  }
+  .contact-subtext{
+    color:var(--text-primary);
+    max-width:480px;
+    margin:0 auto 36px;
+    font-size:1rem;
+  }
+  .contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+  }
+  .contact-phone{
+    color:var(--gold);
+    font-family:'Space Grotesk',monospace;
+    font-size:1rem;
+    letter-spacing:0.03em;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    position:relative;
+    z-index:10;
+    background:rgba(5,10,20,0.9);
+    border-top:1px solid rgba(201,168,76,0.2);
+    padding:36px 40px;
+    text-align:center;
+  }
+  .footer-copy{
+    color:var(--text-muted);
+    font-size:0.85rem;
+    margin-bottom:8px;
+  }
+  .footer-tagline{
+    color:var(--gold);
+    font-style:italic;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:0.92rem;
+    letter-spacing:0.03em;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .mobile-menu{display:flex;}
+    .stats-grid{grid-template-columns:1fr;}
+    .projects-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    section{padding:100px 24px;}
+    .hero-annotation{display:none;}
+    #hero{padding:120px 24px 60px;}
+    .nav-inner{padding:16px 20px;}
+    .timeline{padding-left:28px;}
+    .timeline-dot{left:-28px;}
+    .timeline-card{padding:26px 22px;}
+  }
+
+  @media (max-width: 480px){
+    .hero-buttons{flex-direction:column;align-items:flex-start;}
+    .contact-buttons{flex-direction:column;}
+    .contact-card{padding:44px 28px;}
+    .bio-card{padding:30px 22px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== BACKGROUND LAYERS ===== -->
+<div class="bg-layer-wrap">
+  <div class="bg-img" id="bg1"></div>
+  <div class="bg-img" id="bg2"></div>
+  <div class="bg-img" id="bg3"></div>
+  <div class="bg-img" id="bg4"></div>
+  <div class="bg-img" id="bg5"></div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-diamond"></div>
+      <span class="nav-brand-text">PJ</span>
+      <span class="nav-brand-sub">/ Mech. Eng.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/Pranoy_PJ_Resume.pdf" download class="nav-resume-btn">Resume</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#leadership">Leadership</a>
+  <a href="#contact">Contact</a>
+  <a href="/Pranoy_PJ_Resume.pdf" download class="nav-resume-btn">Resume</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Mechanical Engineering Graduate</div>
+    <div class="hero-line"></div>
+    <h1 class="hero-name">PRANOY P<br>JYOTHIRAJ</h1>
+    <div class="hero-subtitle">Quality &amp; Process Engineering • Chennai, Tamil Nadu</div>
+    <p class="hero-description">Hands-on automotive QA experience at a Tier-1 OEM supplier. Building towards a career in engineering excellence at a global MNC.</p>
+    <div class="hero-buttons">
+      <a href="/Pranoy_PJ_Resume.pdf" download class="btn btn-fill">Download Resume</a>
+      <a href="#projects" class="btn btn-outline">View My Work</a>
+    </div>
+  </div>
+  <div class="hero-annotation">
+    Rev.2026 | Scale N.T.S.<br>Drawing No. PPJ-001
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-eyebrow fade-in">Profile</div>
+  <h2 class="section-title fade-in">About Me</h2>
+
+  <div class="stats-grid">
+    <div class="card stat-card fade-in">
+      <div class="stat-number" data-count="8.06">0</div>
+      <div class="stat-label">CGPA Score</div>
+      <div class="stat-sub">Anna University</div>
+    </div>
+    <div class="card stat-card fade-in">
+      <div class="stat-number" data-count="8.5">0</div>
+      <div class="stat-label">IELTS Band</div>
+      <div class="stat-sub">Overall Score</div>
+    </div>
+    <div class="card stat-card fade-in">
+      <div class="stat-number" data-count="3" data-suffix="+">0</div>
+      <div class="stat-label">Internships Completed</div>
+      <div class="stat-sub">NSIC · Blasto · MRP</div>
+    </div>
+  </div>
+
+  <div class="card bio-card fade-in">
+    <p>I'm a Mechanical Engineering graduate from SVCE Sriperumbudur (Anna University), graduating July 2026 with a CGPA of 8.06. I'm currently interning as a Quality Assurance Engineer at MRP AutoRub Pvt Ltd, a Tier-1 automotive rubber hose manufacturer in Kakkalur, supplying to OEM customers including Daimler, Ashok Leyland, Tata Motors, Mahindra, Modine, and Schwing Stetter.</p>
+    <p>My work spans GD&amp;T and tolerance analysis, SOP and Work Instruction development, quality alert documentation, and shop floor inspection. I also independently built and deployed two web applications that automated the QA team's inspection and dispatch workflows, tools that are actively used on the shop floor today.</p>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience">
+  <div class="section-eyebrow fade-in">Career Path</div>
+  <h2 class="section-title fade-in">Experience</h2>
+
+  <div class="timeline">
+    <div class="timeline-entry fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">Quality Assurance Intern</div>
+          <div class="timeline-duration">March 2026 – Present</div>
+        </div>
+        <div class="timeline-company">MRP AutoRub Pvt. Ltd.</div>
+        <div class="timeline-location">Kakkalur, Tiruvallur</div>
+        <ul class="timeline-bullets">
+          <li>Developed SOPs and inspection criteria from OEM customer drawings (Daimler, Ashok Leyland, Tata Motors, Mahindra), averaging 8 to 10 SOPs per day with consistent manager sign-off</li>
+          <li>Applied GD&amp;T principles and tolerance tables across 250+ active runner parts covering ID, OD, wall thickness, bend radii, and profile lengths</li>
+          <li>Prepared Quality Alert documents and corrective action plans for process deviations</li>
+          <li>Drafted bilingual English and Tamil Work Instructions for shop floor operators</li>
+          <li>Built two web applications that automated QA inspection data entry and SOP dispatch workflows</li>
+          <li>Maintained traceability records and coordinated across quality, production, and management teams</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-entry fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">In-Plant Intern</div>
+          <div class="timeline-duration">June 2024 – July 2024</div>
+        </div>
+        <div class="timeline-company">Blasto Metal Spray Processors Pvt. Ltd.</div>
+        <div class="timeline-location">Chennai, TN</div>
+        <ul class="timeline-bullets">
+          <li>Observed machining, fabrication, and thermal spray processes for wind turbine components</li>
+          <li>Understood how manufacturing constraints and surface treatments affect component performance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-entry fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <div class="timeline-role">Design and Development Intern</div>
+          <div class="timeline-duration">January 2024</div>
+        </div>
+        <div class="timeline-company">National Small Industries Corporation (NSIC)</div>
+        <div class="timeline-location">Chennai, TN</div>
+        <ul class="timeline-bullets">
+          <li>Training exposure to PTC Creo and SolidWorks for solid modelling and part design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <div class="section-eyebrow fade-in">Selected Work</div>
+  <h2 class="section-title fade-in">Projects</h2>
+
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="project-title">Quality Assurance Intelligence App</div>
+      <div class="tag-row">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Firestore</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+      <p class="project-desc">Built and deployed a web application for the QA team at MRP AutoRub. Features include real-time multi-user audit data entry, DWM dashboard, production reports, WhatsApp summary export, and Excel export. Replaced a fully manual daily process and is actively used on the shop floor.</p>
+      <a href="https://pranoy321.github.io/MRP-Audit" target="_blank" rel="noopener" class="project-link">View Live App ↗</a>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-title">SOP Checker and Dispatch App</div>
+      <div class="tag-row">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Google Sheets API</span>
+        <span class="tag">Claude AI</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+      <p class="project-desc">Built and deployed a web application for SOP dispatch management. Features include auto-fetch from Google Sheets CSVs, AI-powered part number extraction from production list photos, bulk paste checker, ERP upload tracking, and WhatsApp summary export.</p>
+      <a href="https://pranoy321.github.io/sop-checker" target="_blank" rel="noopener" class="project-link">View Live App ↗</a>
+    </div>
+
+    <div class="project-card full-width fade-in">
+      <div class="project-title">IC Engine Emission Study</div>
+      <div class="tag-row">
+        <span class="tag">Research</span>
+        <span class="tag">IC Engine</span>
+        <span class="tag">Nanoparticles</span>
+        <span class="tag">Emissions</span>
+        <span class="tag">Fuel Technology</span>
+      </div>
+      <p class="project-desc">Synthesised Al2O3-doped CeO2 nanoparticles with a crystallite size of 16.33 nm confirmed via XRD, SEM, FTIR, and TGA. Tested nano-dispersed B20 biodiesel blends on a Kirloskar TV1 CI engine across four load conditions. Optimal blend at B20 plus 100 ppm achieved 35% BTE, 34% CO reduction, 32% smoke opacity reduction, and 6% HC reduction versus plain B20 baseline.</p>
+      <span class="project-tag-label">Final Year Project | Anna University 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <div class="section-eyebrow fade-in">Capabilities</div>
+  <h2 class="section-title fade-in">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="card skill-group fade-in">
+      <div class="skill-group-title">⚙ Quality and TQM</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Quality Management Systems</span>
+        <span class="skill-tag">SOP Development</span>
+        <span class="skill-tag">Work Instructions</span>
+        <span class="skill-tag">Quality Alerts</span>
+        <span class="skill-tag">Inspection Planning</span>
+        <span class="skill-tag">Root Cause Analysis</span>
+        <span class="skill-tag">Corrective Action</span>
+        <span class="skill-tag">Traceability Documentation</span>
+        <span class="skill-tag">Process Improvement</span>
+      </div>
+    </div>
+
+    <div class="card skill-group fade-in">
+      <div class="skill-group-title">⚙ Engineering</div>
+      <div class="skill-tags">
+        <span class="skill-tag">GD&amp;T</span>
+        <span class="skill-tag">Tolerance Analysis</span>
+        <span class="skill-tag">Dimensional Metrology</span>
+        <span class="skill-tag">Engineering Drawing Interpretation</span>
+        <span class="skill-tag">Cross-functional Coordination</span>
+      </div>
+    </div>
+
+    <div class="card skill-group fade-in">
+      <div class="skill-group-title">⚙ Software</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MS Office 365 Excel Advanced</span>
+        <span class="skill-tag">PTC Creo</span>
+        <span class="skill-tag">SolidWorks</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Web Application Development</span>
+        <span class="skill-tag">Firebase</span>
+        <span class="skill-tag">GitHub Pages</span>
+      </div>
+    </div>
+
+    <div class="card skill-group fade-in">
+      <div class="skill-group-title">⚙ Languages</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Malayalam Native</span>
+        <span class="skill-tag">Tamil Professional</span>
+        <span class="skill-tag">English IELTS 8.5</span>
+        <span class="skill-tag">Hindi Basic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education">
+  <div class="section-eyebrow fade-in">Academic Record</div>
+  <h2 class="section-title fade-in">Education</h2>
+
+  <div class="card edu-entry fade-in">
+    <div class="edu-degree">B.E. Mechanical Engineering</div>
+    <div class="edu-institution">Sri Venkateswara College of Engineering, Sriperumbudur</div>
+    <div class="edu-meta">Anna University &nbsp;|&nbsp; 2022 to 2026</div>
+    <div class="edu-score">CGPA: 8.06 out of 10.0</div>
+    <div class="edu-coursework">Relevant coursework: Engineering Drawing, Manufacturing Processes, Quality Engineering, Machine Design, Thermodynamics</div>
+  </div>
+
+  <div class="card edu-entry fade-in">
+    <div class="edu-degree">Class XII</div>
+    <div class="edu-institution">TI Matriculation Higher Secondary School</div>
+    <div class="edu-meta">2021 to 2022</div>
+    <div class="edu-score">Score: 83%</div>
+  </div>
+</section>
+
+<!-- ===== LEADERSHIP ===== -->
+<section id="leadership">
+  <div class="section-eyebrow fade-in">Achievements</div>
+  <h2 class="section-title fade-in">Leadership</h2>
+
+  <div class="card edu-entry fade-in">
+    <div class="edu-degree">House Captain</div>
+    <div class="edu-institution">TI Matriculation Higher Secondary School</div>
+    <div class="edu-meta">2021 – 2022</div>
+    <div class="edu-coursework">Led house activities, represented the house in school-level events and inter-house competitions.</div>
+  </div>
+
+  <div class="card edu-entry fade-in">
+    <div class="edu-degree">Treasurer</div>
+    <div class="edu-institution">Forum for Economic Studies by Engineers (FORESE), SVCE</div>
+    <div class="edu-meta">AY 2024 – 2025</div>
+    <div class="edu-coursework">Managed club finances, tracked expenses, and set up basic financial controls for club operations.</div>
+  </div>
+
+  <div class="card edu-entry fade-in">
+    <div class="edu-degree">General Secretary</div>
+    <div class="edu-institution">Forum for Economic Studies by Engineers (FORESE), SVCE</div>
+    <div class="edu-meta">AY 2025 – 2026</div>
+    <div class="edu-coursework">Led club operations, drove decision-making within the core panel, and managed student engagement programs across the department.</div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="card contact-card fade-in">
+    <h2 class="contact-title">Let's Connect</h2>
+    <p class="contact-subtext">I'm actively looking for full-time engineering roles at MNCs in Chennai. If you have an opportunity or just want to connect, reach out.</p>
+    <div class="contact-buttons">
+      <a href="mailto:pranoypjoff@gmail.com" class="btn btn-outline">Email</a>
+      <a href="https://linkedin.com/in/pjpranoy" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      <a href="/Pranoy_PJ_Resume.pdf" download class="btn btn-fill">Resume</a>
+    </div>
+    <div class="contact-phone">+91 75500 05801</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-copy">© 2026 Pranoy P Jyothiraj | Chennai, Tamil Nadu</div>
+  <div class="footer-tagline">Precision. Process. Performance.</div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+(function(){
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== MOBILE NAV ===== */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  /* ===== THREE.JS HERO SCENE ===== */
+  function initHeroScene(){
+    var canvas = document.getElementById('hero-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 8;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    var goldColor = 0xC9A84C;
+
+    var torusGeo1 = new THREE.TorusGeometry(2.8, 0.9, 16, 80);
+    var torusMat1 = new THREE.MeshBasicMaterial({ color: goldColor, wireframe: true, transparent: true, opacity: 0.12 });
+    var torus1 = new THREE.Mesh(torusGeo1, torusMat1);
+    torus1.position.set(3.2, 0.4, -2);
+    torus1.rotation.x = 0.6;
+    scene.add(torus1);
+
+    var torusGeo2 = new THREE.TorusGeometry(1.2, 0.35, 12, 60);
+    var torusMat2 = new THREE.MeshBasicMaterial({ color: goldColor, wireframe: true, transparent: true, opacity: 0.07 });
+    var torus2 = new THREE.Mesh(torusGeo2, torusMat2);
+    torus2.position.set(-3.4, -1, -1.5);
+    torus2.rotation.x = 1.1;
+    scene.add(torus2);
+
+    var particleCount = 80;
+    var particleGeo = new THREE.BufferGeometry();
+    var positions = new Float32Array(particleCount * 3);
+    for (var i = 0; i < particleCount; i++){
+      positions[i*3] = (Math.random() - 0.5) * 16;
+      positions[i*3+1] = (Math.random() - 0.5) * 10;
+      positions[i*3+2] = (Math.random() - 0.5) * 8;
+    }
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var particleMat = new THREE.PointsMaterial({ color: goldColor, size: 0.045, transparent: true, opacity: 0.5 });
+    var particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
+
+    function onResize(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener('resize', onResize);
+
+    var clock = new THREE.Clock();
+
+    function animate(){
+      requestAnimationFrame(animate);
+      var delta = clock.getDelta();
+      torus1.rotation.z += delta * 0.08;
+      torus1.rotation.y += delta * 0.04;
+      torus2.rotation.z -= delta * 0.06;
+      torus2.rotation.y -= delta * 0.03;
+      particles.rotation.y += delta * 0.01;
+      renderer.render(scene, camera);
+    }
+
+    if (!reduceMotion){
+      animate();
+    } else {
+      renderer.render(scene, camera);
+    }
+  }
+
+  initHeroScene();
+
+  /* ===== GSAP SCROLL ANIMATIONS ===== */
+  if (typeof gsap !== 'undefined'){
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (reduceMotion){
+      gsap.set('.fade-in', { opacity: 1, y: 0 });
+    } else {
+
+      /* Hero entrance */
+      var heroTimeline = gsap.timeline({ delay: 0.2 });
+      heroTimeline
+        .from('.hero-eyebrow', { opacity: 0, y: 16, duration: 0.6, ease: 'power2.out' })
+        .from('.hero-line', { scaleX: 0, duration: 0.5, ease: 'power2.out' }, '+=0.1')
+        .from('.hero-name', { opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' }, '+=0.1')
+        .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '+=0.1')
+        .from('.hero-description', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '+=0.1')
+        .from('.hero-buttons', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '+=0.1')
+        .from('.hero-annotation', { opacity: 0, duration: 0.6 }, '+=0.1');
+
+      /* Generic fade-in on scroll */
+      document.querySelectorAll('.fade-in').forEach(function(el){
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+
+      /* Timeline entries slide in from left */
+      gsap.utils.toArray('.timeline-entry').forEach(function(el, i){
+        gsap.fromTo(el, { opacity: 0, x: -30 }, {
+          opacity: 1, x: 0, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+
+      /* Project cards stagger */
+      gsap.fromTo('.project-card', { opacity: 0, y: 30 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.15,
+        scrollTrigger: {
+          trigger: '.projects-grid',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+
+      /* Skill tags stagger */
+      gsap.utils.toArray('.skill-group').forEach(function(group){
+        gsap.fromTo(group.querySelectorAll('.skill-tag'), { opacity: 0, y: 12 }, {
+          opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.05,
+          scrollTrigger: {
+            trigger: group,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      });
+
+      /* Stat count-up */
+      gsap.utils.toArray('.stat-number').forEach(function(el){
+        var target = parseFloat(el.getAttribute('data-count'));
+        var suffix = el.getAttribute('data-suffix') || '';
+        var isDecimal = el.getAttribute('data-count').indexOf('.') !== -1;
+        var hasRun = false;
+
+        function runCountUp(){
+          if (hasRun) return;
+          hasRun = true;
+          gsap.to({ val: 0 }, {
+            val: target,
+            duration: 1.6,
+            ease: 'power2.out',
+            onUpdate: function(){
+              var v = this.targets()[0].val;
+              el.textContent = (isDecimal ? v.toFixed(2) : Math.round(v)) + suffix;
+            },
+            onComplete: function(){
+              el.textContent = (isDecimal ? target.toFixed(2) : Math.round(target)) + suffix;
+            }
+          });
+        }
+
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: runCountUp
+        });
+
+        /* Fallback: if the element is already in viewport on page load
+           (e.g. opened locally, hash link, or fast load before ScrollTrigger
+           registers), trigger the count-up immediately via IntersectionObserver. */
+        if ('IntersectionObserver' in window){
+          var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+              if (entry.isIntersecting){
+                runCountUp();
+                observer.disconnect();
+              }
+            });
+          }, { threshold: 0.2 });
+          observer.observe(el);
+        }
+      });
+
+      /* ===== BACKGROUND CROSSFADE SYSTEM ===== */
+      var bgSequence = [
+        { trigger: '#about',      from: 'bg5', to: 'bg2' },
+        { trigger: '#experience', from: 'bg2', to: 'bg1' },
+        { trigger: '#projects',   from: 'bg1', to: 'bg3' },
+        { trigger: '#skills',     from: 'bg3', to: 'bg4' },
+        { trigger: '#education',  from: 'bg4', to: 'bg5' },
+        { trigger: '#contact',    from: 'bg5', to: 'bg2' }
+      ];
+
+      bgSequence.forEach(function(item){
+        var fromEl = document.getElementById(item.from);
+        var toEl = document.getElementById(item.to);
+
+        ScrollTrigger.create({
+          trigger: item.trigger,
+          start: 'top 60%',
+          onEnter: function(){
+            gsap.to(fromEl, { opacity: 0, duration: 1.2, ease: 'power1.inOut' });
+            gsap.to(toEl, { opacity: 1, duration: 1.2, ease: 'power1.inOut' });
+          },
+          onLeaveBack: function(){
+            gsap.to(toEl, { opacity: 0, duration: 1.2, ease: 'power1.inOut' });
+            gsap.to(fromEl, { opacity: 1, duration: 1.2, ease: 'power1.inOut' });
+          }
+        });
+      });
+
+      /* ===== PARALLAX ON BACKGROUND IMAGES ===== */
+      document.querySelectorAll('.bg-img').forEach(function(el){
+        gsap.to(el, {
+          yPercent: -15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true
+          }
+        });
+      });
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
