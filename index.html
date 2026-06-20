@@ -67,10 +67,12 @@
     background:rgba(10,15,35,0.45);
   }
   #bg1{background-image:url('images/bg1.png');}
-  #bg2{background-image:url('images/bg2.png');filter:invert(1) grayscale(1) sepia(1) hue-rotate(8deg) saturate(2.2) brightness(1.15) contrast(1.1);}
+  #bg2{background-image:url('images/bg2.png');}
   #bg3{background-image:url('images/bg3.png');}
   #bg4{background-image:url('images/bg4.png');}
   #bg5{background-image:url('images/bg5.png');}
+  #bg6{background-image:url('images/bg6.png');}
+  #bg7{background-image:url('images/bg7.png');filter:invert(1) grayscale(1) sepia(1) hue-rotate(8deg) saturate(2.2) brightness(1.15) contrast(1.1);}
 
   /* ===== NAVIGATION ===== */
   nav{
@@ -686,6 +688,8 @@
   <div class="bg-img" id="bg3"></div>
   <div class="bg-img" id="bg4"></div>
   <div class="bg-img" id="bg5"></div>
+  <div class="bg-img" id="bg6"></div>
+  <div class="bg-img" id="bg7"></div>
 </div>
 
 
@@ -1120,7 +1124,7 @@
       /* Switch backgrounds instantly per section (no crossfade animation),
          using IntersectionObserver since ScrollTrigger animations are
          skipped under reduced motion. */
-      var allBgIdsRM = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5'];
+      var allBgIdsRM = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
       var bgElsRM = {};
       allBgIdsRM.forEach(function(id){ bgElsRM[id] = document.getElementById(id); });
 
@@ -1131,13 +1135,13 @@
       }
 
       var bgMapRM = {
-        'about': 'bg2',
-        'experience': 'bg1',
+        'about': 'bg1',
+        'experience': 'bg2',
         'projects': 'bg3',
         'skills': 'bg4',
         'education': 'bg5',
-        'leadership': 'bg5',
-        'contact': 'bg2'
+        'leadership': 'bg6',
+        'contact': 'bg7'
       };
 
       if ('IntersectionObserver' in window){
@@ -1278,7 +1282,7 @@
          than only fading a "from" and "to" pair. This prevents images
          from stacking/getting stuck visible when a person scrolls fast
          past multiple section triggers in quick succession. */
-      var allBgIds = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5'];
+      var allBgIds = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7'];
       var bgEls = {};
       allBgIds.forEach(function(id){ bgEls[id] = document.getElementById(id); });
 
@@ -1294,12 +1298,13 @@
       }
 
       var bgSequence = [
-        { trigger: '#about',      enter: 'bg2', leaveBack: null },
-        { trigger: '#experience', enter: 'bg1', leaveBack: 'bg2' },
-        { trigger: '#projects',   enter: 'bg3', leaveBack: 'bg1' },
-        { trigger: '#skills',     enter: 'bg4', leaveBack: 'bg3' },
-        { trigger: '#education',  enter: 'bg5', leaveBack: 'bg4' },
-        { trigger: '#contact',    enter: 'bg2', leaveBack: 'bg5' }
+        { trigger: '#about',       enter: 'bg1', leaveBack: null },
+        { trigger: '#experience',  enter: 'bg2', leaveBack: 'bg1' },
+        { trigger: '#projects',    enter: 'bg3', leaveBack: 'bg2' },
+        { trigger: '#skills',      enter: 'bg4', leaveBack: 'bg3' },
+        { trigger: '#education',   enter: 'bg5', leaveBack: 'bg4' },
+        { trigger: '#leadership',  enter: 'bg6', leaveBack: 'bg5' },
+        { trigger: '#contact',     enter: 'bg7', leaveBack: 'bg6' }
       ];
 
       bgSequence.forEach(function(item){
