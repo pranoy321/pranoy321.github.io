@@ -57,13 +57,14 @@
     background-size:cover;
     background-position:center;
     opacity:0;
+    filter:brightness(1.35) contrast(1.15) saturate(1.2);
     will-change:opacity, transform;
   }
   .bg-img::after{
     content:'';
     position:absolute;
     top:0;left:0;width:100%;height:100%;
-    background:rgba(10,15,35,0.72);
+    background:rgba(10,15,35,0.45);
   }
   #bg1{background-image:url('images/bg1.png');}
   #bg2{background-image:url('images/bg2.png');}
@@ -1195,9 +1196,17 @@
           onEnter: runCountUp
         });
 
-        /* Fallback: if the element is already in viewport on page load
-           (e.g. opened locally, hash link, or fast load before ScrollTrigger
-           registers), trigger the count-up immediately via IntersectionObserver. */
+        /* Fallback 1: if the element is already in viewport at the moment
+           this script runs (e.g. page loaded via a #hash link straight to
+           a section, so ScrollTrigger's onEnter never fires because we
+           never "entered" it by scrolling), check geometry directly. */
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0){
+          runCountUp();
+        }
+
+        /* Fallback 2: IntersectionObserver catches any remaining case,
+           e.g. layout shifts after fonts/images load. */
         if ('IntersectionObserver' in window){
           var observer = new IntersectionObserver(function(entries){
             entries.forEach(function(entry){
