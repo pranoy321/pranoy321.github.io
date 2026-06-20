@@ -1311,6 +1311,40 @@
         });
       });
 
+      /* Guard against spurious onLeaveBack/onEnter firing during
+         ScrollTrigger's initial refresh (e.g. when the page loads with a
+         URL hash like #experience, which can cause ScrollTrigger to think
+         it has already crossed a trigger point at setup time). After all
+         triggers are created and GSAP finishes its initial measurement
+         pass, explicitly set the correct background for whatever the
+         actual current scroll position is, overriding any incorrect
+         early fire. */
+      ScrollTrigger.refresh();
+      (function enforceCorrectInitialBg(){
+        var scrollY = window.scrollY || window.pageYOffset;
+        var activeId = null;
+        bgSequence.forEach(function(item){
+          var el = document.querySelector(item.trigger);
+          if (el){
+            var rect = el.getBoundingClientRect();
+            var triggerPoint = window.innerHeight * 0.6;
+            if (rect.top <= triggerPoint){
+              activeId = item.enter;
+            }
+          }
+        });
+        if (!activeId){
+          /* Still above the About trigger point: hero, no background */
+          allBgIds.forEach(function(id){
+            gsap.set(bgEls[id], { opacity: 0 });
+          });
+        } else {
+          allBgIds.forEach(function(id){
+            gsap.set(bgEls[id], { opacity: (id === activeId) ? 1 : 0 });
+          });
+        }
+      })();
+
       /* ===== PARALLAX ON BACKGROUND IMAGES ===== */
       document.querySelectorAll('.bg-img').forEach(function(el){
         gsap.to(el, {
